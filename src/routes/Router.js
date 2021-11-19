@@ -6,6 +6,7 @@ import {USER_DATA} from "../lib/variables";
 import LoginPage from "../pages/auth/Login";
 import RegisterPage from "../pages/auth/Register";
 import MainPage from "../pages/Main";
+import ProfilePage from "../pages/Profile";
 
 const Router = () => {
 	const user = get(USER_DATA);
@@ -13,8 +14,13 @@ const Router = () => {
 	const routes = [
 		{
 			path: '/',
-			// element: !user ? <Navigate to='/auth/login' /> : <Navigate to='/' />,
+			element: !user ? <Navigate to='/auth/login' /> : null,
 			children: [{ path: '/', element: <MainPage /> }],
+		},
+		{
+			path: '/profile',
+			element: !user ? <Navigate to='/auth/login' /> : null,
+			children: [{ path: '/profile', element: <ProfilePage /> }],
 		},
 		{
 			path: '/auth',

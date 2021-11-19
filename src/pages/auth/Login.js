@@ -1,16 +1,20 @@
-import {useNavigate} from "react-router-dom";
-import {Box, Card, Stack, Typography} from "@mui/material";
+import {Card, Stack, Typography} from "@mui/material";
 import LoginForm from "../../components/pages/login/LoginForm";
+import React from "react";
+import {DEVELOPED_BY_TEXT} from "../../lib/variables";
 
-const LoginPage = () => {
-    const navigate = useNavigate();
-
-    return (
+const LoginPage = () => (
+    <Stack
+        sx={{
+            width: '100%',
+            height: '100%',
+            // backgroundColor: '#eeeeee',
+        }}
+    >
         <Stack
             sx={{
                 width: '100%',
                 height: '100%',
-                backgroundColor: '#eeeeee',
                 alignItems: 'center',
                 justifyContent: 'center'
             }}>
@@ -19,7 +23,12 @@ const LoginPage = () => {
                 <LoginForm />
             </Card>
         </Stack>
-    )
-}
+        <Stack sx={{ alignItems: 'center', px: 3, pb: 2 }}>
+            <Stack>
+                <Typography variant='body2' align='center' color='#ffffff'>{DEVELOPED_BY_TEXT}</Typography>
+            </Stack>
+        </Stack>
+    </Stack>
+)
 
 export default LoginPage;
